@@ -5,9 +5,6 @@ import AppSvgIcon from "../App/AppSvgIcon.vue";
 const router = useRouter();
 const isDrawerOpen = ref(false);
 const toggleDrawer = () => {
-  const drawer = document.getElementById("logo-sidebar");
-  drawer?.classList.toggle("w-64");
-  drawer?.classList.toggle("w-15");
   isDrawerOpen.value = !isDrawerOpen.value;
 };
 </script>
@@ -53,8 +50,8 @@ const toggleDrawer = () => {
   </nav>
 
   <aside
-    id="logo-sidebar"
     class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    :class="!isDrawerOpen ? 'w-64' : 'w-14'"
     aria-label="Sidebar"
   >
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
