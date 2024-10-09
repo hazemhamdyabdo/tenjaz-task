@@ -1,5 +1,7 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia'
+
+import type { User, NewUser } from "../../types"
 import { useDialog } from "../../composables/useDialog";
 import axios from "../../plugins/axios";
 import { useToast } from "primevue/usetoast";
@@ -10,7 +12,7 @@ export const useUsersStore = defineStore('users', () => {
   const { toggleDialog } = useDialog()
   const toast = useToast();
 
-  const allUsers = ref([])
+  const allUsers = ref<User[]>()
   const loading = ref(false);
 
 
@@ -27,7 +29,7 @@ export const useUsersStore = defineStore('users', () => {
     }
   }
 
-  const updateUser = async (user: any) => {
+  const updateUser = async (user: NewUser) => {
     loading.value = true
     try {
       await axios.put(`/users/${user.id}`, user)

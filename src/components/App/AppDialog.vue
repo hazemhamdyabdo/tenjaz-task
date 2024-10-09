@@ -1,19 +1,10 @@
 <script setup lang="ts">
 import { useDialog } from "../../composables/useDialog";
-
-import Button from "primevue/button";
-import Dialog from "primevue/dialog";
-import InputText from "primevue/inputtext";
+import { NewUser } from "../../types";
 
 const { visible } = useDialog();
 defineProps<{
-  user: {
-    id: number;
-    username: string;
-    email: string;
-    firstName: string;
-    lastName: string;
-  };
+  user: NewUser;
 }>();
 const emit = defineEmits(["close:dialog", "update:user"]);
 </script>
@@ -35,6 +26,7 @@ const emit = defineEmits(["close:dialog", "update:user"]);
         <InputText
           id="firstName"
           v-model="user.firstName"
+          :invalid="!user.firstName"
           class="flex-auto"
           autocomplete="off"
         />
@@ -44,6 +36,7 @@ const emit = defineEmits(["close:dialog", "update:user"]);
         <InputText
           id="email"
           class="flex-auto"
+          :invalid="!user.lastName"
           v-model="user.lastName"
           autocomplete="off"
         />
@@ -53,6 +46,7 @@ const emit = defineEmits(["close:dialog", "update:user"]);
         <InputText
           id="username"
           v-model="user.username"
+          :invalid="!user.username"
           class="flex-auto"
           autocomplete="off"
         />
@@ -63,6 +57,7 @@ const emit = defineEmits(["close:dialog", "update:user"]);
           id="email"
           class="flex-auto"
           v-model="user.email"
+          :invalid="!user.email"
           autocomplete="off"
         />
       </div>
@@ -87,6 +82,7 @@ const emit = defineEmits(["close:dialog", "update:user"]);
           "
         ></Button>
       </div>
+      <!-- ! we can also add slot here to add custom content and be more dynamic but its only for demo -->
     </Dialog>
   </teleport>
 </template>

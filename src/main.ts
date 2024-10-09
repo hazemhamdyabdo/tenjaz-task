@@ -4,39 +4,23 @@ import App from './App.vue'
 import { routes } from './routes'
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
-import "echarts";
-import './index.css'
-import 'primeicons/primeicons.css'
+
 import pinia from './stores/pinia';
 import ToastService from 'primevue/toastservice';
 import Toast from 'primevue/toast';
 
+import "echarts";
+import './assets/index.css'
+import 'primeicons/primeicons.css'
 
 const app = createApp(App)
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: import.meta.hot ? [] : routes,
+  routes,
 })
 
-if (import.meta.hot) {
-  const removeRoutes = []
-
-  for (const route of routes) {
-    removeRoutes.push(router.addRoute(route))
-  }
-}
-if (import.meta.hot) {
-  import.meta.hot?.accept('./routes.ts', ({ routes }) => {
-    for (const removeRoute of removeRoutes) removeRoute()
-    removeRoutes = []
-    for (const route of routes) {
-      removeRoutes.push(router.addRoute(route))
-    }
-    router.replace('')
-  })
-}
-
+// Setup PrimeVue with theme configuration
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
@@ -46,8 +30,11 @@ app.use(PrimeVue, {
   }
 });
 
+// Global components
 app.component('Toast', Toast);
+// Use plugins and router
 app.use(pinia)
 app.use(ToastService);
 app.use(router)
+
 app.mount('#app')
