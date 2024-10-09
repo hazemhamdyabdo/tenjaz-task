@@ -1,15 +1,121 @@
-<template>
-  <HelloWorld msg="Vue 3, Vite, TypeScript & Tailwind CSS" />
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-import HelloWorld from '../components/HelloWorld.vue'
-
-export default defineComponent({
-  components: {
-    HelloWorld,
-  },
-})
+<script lang="ts" setup>
+import PieChart from "../components/PieChart.vue";
+import BarChart from "../components/BarChart.vue";
 </script>
+<template>
+  <div class="grid grid-cols-12 gap-8">
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+      <div class="card mb-0">
+        <div class="flex justify-between mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4">Orders</span>
+            <div
+              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            >
+              152
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-shopping-cart text-blue-500 !text-xl"></i>
+          </div>
+        </div>
+        <span class="text-primary font-medium">24 new </span>
+        <span class="text-muted-color">since last visit</span>
+      </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+      <div class="card bg-white mb-0">
+        <div class="flex justify-between mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4">Revenue</span>
+            <div
+              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            >
+              $2.100
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-dollar text-orange-500 !text-xl"></i>
+          </div>
+        </div>
+        <span class="text-primary font-medium">%52+ </span>
+        <span class="text-muted-color">since last week</span>
+      </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+      <div class="card mb-0">
+        <div class="flex justify-between mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4"
+              >Customers</span
+            >
+            <div
+              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            >
+              28441
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-users text-cyan-500 !text-xl"></i>
+          </div>
+        </div>
+        <span class="text-primary font-medium">520 </span>
+        <span class="text-muted-color">newly registered</span>
+      </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
+      <div class="card mb-0">
+        <div class="flex justify-between mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4"
+              >Comments</span
+            >
+            <div
+              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            >
+              152 Unread
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-comment text-purple-500 !text-xl"></i>
+          </div>
+        </div>
+        <span class="text-primary font-medium">85 </span>
+        <span class="text-muted-color">responded</span>
+      </div>
+    </div>
+    <div class="col-span-12 xl:col-span-6">
+      <div class="card">
+        <div class="font-semibold text-xl mb-4">Revenue Stream</div>
+        <PieChart />
+      </div>
+    </div>
+    <div class="col-span-12 xl:col-span-6">
+      <div class="card">
+        <div class="font-semibold text-xl mb-4">Sales Overview</div>
+        <BarChart />
+      </div>
+    </div>
+  </div>
+</template>
+<style scoped>
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px -2px rgb(0 0 0 / 10%);
+  padding: 1.5rem;
+  background-color: #fff;
+  color: #374151;
+}
+</style>

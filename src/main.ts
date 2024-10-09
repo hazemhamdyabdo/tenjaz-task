@@ -2,7 +2,12 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import { routes } from './routes'
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
+import "echarts";
 import './index.css'
+import 'primeicons/primeicons.css'
+
 
 const app = createApp(App)
 
@@ -28,6 +33,15 @@ if (import.meta.hot) {
     router.replace('')
   })
 }
+
+app.use(PrimeVue, {
+  theme: {
+    preset: Aura,
+    options: {
+      darkModeSelector: '.app-dark'
+    }
+  }
+});
 
 app.use(router)
 app.mount('#app')

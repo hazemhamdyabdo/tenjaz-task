@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref } from "vue";
 import AppSvgIcon from "../App/AppSvgIcon.vue";
-const router = useRouter();
 const isDrawerOpen = ref(false);
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value;

@@ -4,12 +4,23 @@ import AppDrawer from "./components/App/AppDrawer.vue";
 </script>
 
 <template>
-  <!-- <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto my-6">
-      <router-view />
-    </div>
-  </div> -->
-  <main>
+  <section class="">
     <AppDrawer />
-  </main>
+    <!-- max-w-7xl  -->
+    <main class="main-container">
+      <router-view />
+    </main>
+  </section>
 </template>
+<style>
+.main-container {
+  padding: 2rem;
+  margin-top: 56px;
+  margin-left: 255px;
+  min-height: calc(100vh - 56px);
+  min-width: calc(100vw - 255px);
+  overflow-y: auto;
+  transition-property: padding;
+  background-color: aliceblue;
+}
+</style>
