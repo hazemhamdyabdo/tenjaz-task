@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import AppSvgIcon from "../App/AppSvgIcon.vue";
-const isDrawerOpen = ref(false);
-const toggleDrawer = () => {
-  isDrawerOpen.value = !isDrawerOpen.value;
-};
+import { useDrawer } from "../../composables/useDrawer";
+
+const { toggleDrawer, isDrawerOpen } = useDrawer();
 
 const modules = ref([
   {
@@ -65,6 +64,7 @@ const modules = ref([
   <aside
     class="fixed top-0 left-0 z-40 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     :class="!isDrawerOpen ? 'w-64' : 'w-14'"
+    style="transition: all 0.3s ease"
     aria-label="Sidebar"
   >
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
@@ -82,7 +82,7 @@ const modules = ref([
             <span class="ms-3" v-if="!isDrawerOpen">{{ module.name }}</span>
           </router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link
             to="#"
             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -100,9 +100,8 @@ const modules = ref([
               >
             </template>
           </router-link>
-        </li>
+        </li> -->
       </ul>
     </div>
   </aside>
 </template>
-<style scoped></style>
