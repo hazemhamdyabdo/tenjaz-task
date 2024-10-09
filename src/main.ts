@@ -7,6 +7,9 @@ import Aura from '@primevue/themes/aura';
 import "echarts";
 import './index.css'
 import 'primeicons/primeicons.css'
+import pinia from './stores/pinia';
+import ToastService from 'primevue/toastservice';
+import Toast from 'primevue/toast';
 
 
 const app = createApp(App)
@@ -43,5 +46,8 @@ app.use(PrimeVue, {
   }
 });
 
+app.component('Toast', Toast);
+app.use(pinia)
+app.use(ToastService);
 app.use(router)
 app.mount('#app')

@@ -56,7 +56,7 @@ const toggleDrawer = () => {
       <ul class="space-y-2 font-medium">
         <li>
           <router-link
-            to="#"
+            :to="{ name: 'Home' }"
             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <AppSvgIcon
@@ -107,7 +107,7 @@ const toggleDrawer = () => {
         </li>
         <li>
           <router-link
-            to="#"
+            :to="{ name: 'Users' }"
             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <AppSvgIcon

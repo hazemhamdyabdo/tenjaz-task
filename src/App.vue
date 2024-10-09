@@ -4,8 +4,9 @@ import AppDrawer from "./components/App/AppDrawer.vue";
 </script>
 
 <template>
-  <section class="">
+  <section>
     <AppDrawer />
+    <Toast />
     <!-- max-w-7xl  -->
     <main class="main-container">
       <router-view />
